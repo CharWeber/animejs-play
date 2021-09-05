@@ -5,10 +5,26 @@ import './css/styles.css';
 import anime from 'animejs/lib/anime.es';
 
 let boxanime = anime({
-  targets:'#box',
+  targets:'.js-box',
   duration:3000,
-  translateX:[0,600],
+  translateX:(
+    {
+      value:100
+    },
+    {
+      value:0
+    }
+  ),
+  translateY:(
+    {
+      value:0,
+    },
+    {
+      value:100
+    }
+  ),
   loop: true,
-  easing: 'steps(10)',
+  easing: 'easeInOutSine',
+  delay: (elm ,i) => i * 100,
   direction: 'alternate',
 })
